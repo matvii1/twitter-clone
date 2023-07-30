@@ -19,7 +19,7 @@ export const ProfileDetails = () => {
     return <Loading />;
   }
 
-  if (!data.isLoading && (data.error ?? !profile)) {
+  if (!data.isLoading || !profile?.name) {
     return <ErrorPage statusCode={404} />;
   }
 
