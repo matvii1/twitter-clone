@@ -2,6 +2,7 @@ import { useSession } from "next-auth/react";
 import ErrorPage from "next/error";
 import Head from "next/head";
 import { useRouter } from "next/router";
+import { Loading } from "~/components/ui";
 import { api } from "~/utils/api";
 import { TweetProfileList } from "./components";
 import ProfileHeader from "./components/ProfileHeader";
@@ -14,7 +15,11 @@ export const ProfileDetails = () => {
   const data = api.profile.getById.useQuery({ id: String(id) });
   const profile = data.data;
 
-  if (profile?.name == null || data == null) {
+  if (data.isLoading) {
+    return <Loading />;
+  }
+
+  if (!data.isLoading && (data.error ?? !profile)) {
     return <ErrorPage statusCode={404} />;
   }
 
