@@ -11,10 +11,28 @@ datasource db {
     relationMode = "prisma"
 }
 
-model Example {
-    id        String   @id @default(cuid())
+model Tweet {
+    id        String   @id @default(uuid())
+    content   String
     createdAt DateTime @default(now())
-    updatedAt DateTime @updatedAt
+    likes     Like[]
+
+    user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+    userId String
+
+    @@unique([createdAt, id])
+    @@index([userId])
+}
+
+model Like {
+    userId  String
+    tweetId String
+    tweet   Tweet  @relation(fields: [tweetId], references: [id], onDelete: Cascade)
+    user    User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+    @@id([tweetId, userId])
+    @@index([userId])
+    @@index([tweetId])
 }
 
 // Necessary for Next auth
@@ -55,6 +73,13 @@ model User {
     image         String?
     accounts      Account[]
     sessions      Session[]
+
+    // Non-NextAuth fields
+    tweets Tweet[]
+    likes  Like[]
+
+    followers User[] @relation(name: "FollowRelation")
+    following User[] @relation(name: "FollowRelation")
 }
 
 model VerificationToken {

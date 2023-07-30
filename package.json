@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "build": "next build",
-    "dev": "next dev",
+    "dev": "next dev --port 3002",
     "postinstall": "prisma generate",
     "lint": "next lint",
     "start": "next start"
@@ -22,12 +22,15 @@
     "next-auth": "^4.22.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-icons": "^4.10.1",
+    "react-infinite-scroll-component": "^6.1.0",
     "superjson": "1.12.2",
+    "tailwind-merge": "^1.14.0",
     "zod": "^3.21.4"
   },
   "devDependencies": {
     "@types/eslint": "^8.37.0",
-    "@types/node": "^18.16.0",
+    "@types/node": "20.4.5",
     "@types/prettier": "^2.7.2",
     "@types/react": "^18.2.6",
     "@types/react-dom": "^18.2.4",
