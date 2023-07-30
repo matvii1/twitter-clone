@@ -4,6 +4,7 @@
 
 Technologies:
 
+- Authentication
 - Next
 - Typescript
 - TRPc
