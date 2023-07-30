@@ -39,14 +39,14 @@ export const Sidenav: FC = () => {
         {user ? (
           <li>
             <NavButton onClick={() => void handleLogout()}>
-              <VscSignOut className="h-6 w-6" />
+              <VscSignIn className="h-6 w-6" />
               <ResponsiveText label="Log out" />
             </NavButton>
           </li>
         ) : (
           <li>
             <NavButton onClick={() => void handleSignIn()}>
-              <VscSignIn className="h-6 w-6" />
+              <VscSignOut className="h-6 w-6" />
               <ResponsiveText label="Log in" />
             </NavButton>
           </li>

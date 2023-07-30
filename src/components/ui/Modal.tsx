@@ -44,7 +44,7 @@ export const Modal: FC<ModalProps> = ({
               <button
                 type="button"
                 onClick={onClose}
-                className=":hover:bg-gray-600 :hover:text-white ml-auto inline-flex h-8 w-8 items-center justify-center rounded-lg bg-transparent text-sm text-gray-400 transition-colors hover:bg-gray-200 hover:text-gray-900"
+                className=":hover:bg-gray-600 :hover:text-white ml-auto inline-flex h-8 w-8 items-center justify-center rounded-lg bg-transparent text-sm text-gray-400 transition-colors pc-hover:bg-gray-200 pc-hover:text-gray-900"
                 data-modal-hide="medium-modal"
               >
                 <VscClose className="text-2xl" />

@@ -19,8 +19,8 @@ export const ProfileDetails = () => {
     return <Loading />;
   }
 
-  if (!data.isLoading || !profile?.name) {
-    return <ErrorPage statusCode={404} />;
+  if (!profile?.name) {
+    return <ErrorPage withDarkMode={false} statusCode={404} />;
   }
 
   const { name, following, tweets: initialTweets, followers, image } = profile;
